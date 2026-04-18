@@ -6,39 +6,37 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/ggsegverse/ggsegHistorical/workflows/R-CMD-check/badge.svg)](https://github.com/ggsegverse/ggsegHistorical/actions)
+[![R-CMD-check](https://github.com/ggsegverse/ggsegHistorical/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggsegverse/ggsegHistorical/actions/workflows/R-CMD-check.yaml)
+[![r-universe](https://ggseg.r-universe.dev/badges/ggsegHistorical.png)](https://ggseg.r-universe.dev/ggsegHistorical)
 <!-- badges: end -->
 
 This package provides six historical cortical brain atlases digitally
 reconstructed by [Pijnenburg et
 al. (2021)](https://doi.org/10.1016/j.neuroimage.2021.118274) from the
-[Dutch Connectome Lab](http://www.dutchconnectomelab.nl/), formatted for
-use with [ggseg](https://ggseg.github.io/ggseg/) and
-[ggseg3d](https://ggseg.github.io/ggseg3d/).
-
-| Atlas              | Function     | Year | Regions/hemi | Type              |
-|--------------------|--------------|------|--------------|-------------------|
-| Brodmann           | `brodmann()` | 1909 | 39           | Cytoarchitectonic |
-| Campbell           | `campbell()` | 1905 | 17           | Histological      |
-| Economo & Koskinas | `economo()`  | 1925 | 15           | Cytoarchitectonic |
-| Flechsig           | `flechsig()` | 1920 | 46           | Myelogenetic      |
-| Kleist             | `kleist()`   | 1934 | 49           | Functional        |
-| Smith              | `smith()`    | 1907 | 14           | Anatomical        |
-
-To learn how to use these atlases, please look at the documentation for
-[ggseg](https://ggseg.github.io/ggseg/) and
-[ggseg3d](https://ggseg.github.io/ggseg3d/).
+[Dutch Connectome Lab](http://www.dutchconnectomelab.nl/).
 
 ## Installation
 
-You can install ggsegHistorical from [GitHub](https://github.com/) with:
+We recommend installing the ggseg-atlases through the ggseg
+[r-universe](https://ggseg.r-universe.dev/ui#builds):
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("ggseg/ggsegHistorical")
+options(repos = c(
+  ggseg = "https://ggseg.r-universe.dev",
+  CRAN = "https://cloud.r-project.org"
+))
+
+install.packages("ggsegHistorical")
 ```
 
-## Atlases
+You can install this package from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pak("ggsegverse/ggsegHistorical")
+```
+
+## Brodmann (1909)
 
 ``` r
 library(ggseg)
@@ -52,11 +50,13 @@ ggplot() +
     position = position_brain(hemi ~ view),
     show.legend = FALSE
   ) +
-  ggtitle("Brodmann (1909)") +
+  scale_fill_manual(values = brodmann()$palette, na.value = "grey") +
   theme_void()
 ```
 
 <img src="man/figures/README-brodmann-1.png" style="width:100.0%" />
+
+## Campbell (1905)
 
 ``` r
 ggplot() +
@@ -66,11 +66,13 @@ ggplot() +
     position = position_brain(hemi ~ view),
     show.legend = FALSE
   ) +
-  ggtitle("Campbell (1905)") +
+  scale_fill_manual(values = campbell()$palette, na.value = "grey") +
   theme_void()
 ```
 
 <img src="man/figures/README-campbell-1.png" style="width:100.0%" />
+
+## Economo & Koskinas (1925)
 
 ``` r
 ggplot() +
@@ -80,11 +82,13 @@ ggplot() +
     position = position_brain(hemi ~ view),
     show.legend = FALSE
   ) +
-  ggtitle("Economo & Koskinas (1925)") +
+  scale_fill_manual(values = economo()$palette, na.value = "grey") +
   theme_void()
 ```
 
 <img src="man/figures/README-economo-1.png" style="width:100.0%" />
+
+## Flechsig (1920)
 
 ``` r
 ggplot() +
@@ -94,11 +98,13 @@ ggplot() +
     position = position_brain(hemi ~ view),
     show.legend = FALSE
   ) +
-  ggtitle("Flechsig (1920)") +
+  scale_fill_manual(values = flechsig()$palette, na.value = "grey") +
   theme_void()
 ```
 
 <img src="man/figures/README-flechsig-1.png" style="width:100.0%" />
+
+## Kleist (1934)
 
 ``` r
 ggplot() +
@@ -108,11 +114,13 @@ ggplot() +
     position = position_brain(hemi ~ view),
     show.legend = FALSE
   ) +
-  ggtitle("Kleist (1934)") +
+  scale_fill_manual(values = kleist()$palette, na.value = "grey") +
   theme_void()
 ```
 
 <img src="man/figures/README-kleist-1.png" style="width:100.0%" />
+
+## Smith (1907)
 
 ``` r
 ggplot() +
@@ -122,28 +130,15 @@ ggplot() +
     position = position_brain(hemi ~ view),
     show.legend = FALSE
   ) +
-  ggtitle("Smith (1907)") +
+  scale_fill_manual(values = smith()$palette, na.value = "grey") +
   theme_void()
 ```
 
 <img src="man/figures/README-smith-1.png" style="width:100.0%" />
 
-## Citation
+## Data source
 
-If you use these atlases, please cite:
-
-> Pijnenburg R, Scholtens LH, Mantini D, de Reus MA, van den Heuvel MP
-> (2021). Myelo- and cytoarchitectonic microstructural and functional
-> human cortical atlases reconstructed in common MRI space.
-> *NeuroImage*, 239, 118274.
-> [doi:10.1016/j.neuroimage.2021.118274](https://doi.org/10.1016/j.neuroimage.2021.118274)
-
-Please also cite the original historical atlas you use (see `?brodmann`,
-`?campbell`, etc. for individual references).
-
-## License
-
-The atlas data is released under a CC BY-NC-SA 4.0 license by
-[Pijnenburg et
-al. (2021)](https://doi.org/10.1016/j.neuroimage.2021.118274) from the
-[Dutch Connectome Lab](http://www.dutchconnectomelab.nl/).
+Pijnenburg R, Scholtens LH, Mantini D, & van den Heuvel MP (2021).
+Digitally reconstructed cortical brain maps of the pioneers Brodmann,
+Campbell, Economo and Koskinas, Flechsig, Kleist, and Smith.
+*NeuroImage*, 239, 118274.
