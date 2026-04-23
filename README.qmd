@@ -58,92 +58,43 @@ pak::pak("ggsegverse/ggsegHistorical")
 #| label: brodmann
 library(ggseg)
 library(ggsegHistorical)
-library(ggplot2)
 
-ggplot() +
-  geom_brain(
-    atlas = brodmann(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = brodmann()$palette, na.value = "grey") +
-  theme_void()
+plot(brodmann())
 ```
 
 ## Campbell (1905)
 
 ```{r}
 #| label: campbell
-ggplot() +
-  geom_brain(
-    atlas = campbell(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = campbell()$palette, na.value = "grey") +
-  theme_void()
+plot(campbell())
 ```
 
 ## Economo & Koskinas (1925)
 
 ```{r}
 #| label: economo
-ggplot() +
-  geom_brain(
-    atlas = economo(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = economo()$palette, na.value = "grey") +
-  theme_void()
+plot(economo())
 ```
 
 ## Flechsig (1920)
 
 ```{r}
 #| label: flechsig
-ggplot() +
-  geom_brain(
-    atlas = flechsig(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = flechsig()$palette, na.value = "grey") +
-  theme_void()
+plot(flechsig())
 ```
 
 ## Kleist (1934)
 
 ```{r}
 #| label: kleist
-ggplot() +
-  geom_brain(
-    atlas = kleist(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = kleist()$palette, na.value = "grey") +
-  theme_void()
+plot(kleist())
 ```
 
 ## Smith (1907)
 
 ```{r}
 #| label: smith
-ggplot() +
-  geom_brain(
-    atlas = smith(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = smith()$palette, na.value = "grey") +
-  theme_void()
+plot(smith())
 ```
 
 ## Data source

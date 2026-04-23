@@ -41,17 +41,8 @@ pak::pak("ggsegverse/ggsegHistorical")
 ``` r
 library(ggseg)
 library(ggsegHistorical)
-library(ggplot2)
 
-ggplot() +
-  geom_brain(
-    atlas = brodmann(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = brodmann()$palette, na.value = "grey") +
-  theme_void()
+plot(brodmann())
 ```
 
 <img src="man/figures/README-brodmann-1.png" style="width:100.0%" />
@@ -59,15 +50,7 @@ ggplot() +
 ## Campbell (1905)
 
 ``` r
-ggplot() +
-  geom_brain(
-    atlas = campbell(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = campbell()$palette, na.value = "grey") +
-  theme_void()
+plot(campbell())
 ```
 
 <img src="man/figures/README-campbell-1.png" style="width:100.0%" />
@@ -75,15 +58,7 @@ ggplot() +
 ## Economo & Koskinas (1925)
 
 ``` r
-ggplot() +
-  geom_brain(
-    atlas = economo(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = economo()$palette, na.value = "grey") +
-  theme_void()
+plot(economo())
 ```
 
 <img src="man/figures/README-economo-1.png" style="width:100.0%" />
@@ -91,15 +66,7 @@ ggplot() +
 ## Flechsig (1920)
 
 ``` r
-ggplot() +
-  geom_brain(
-    atlas = flechsig(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = flechsig()$palette, na.value = "grey") +
-  theme_void()
+plot(flechsig())
 ```
 
 <img src="man/figures/README-flechsig-1.png" style="width:100.0%" />
@@ -107,15 +74,7 @@ ggplot() +
 ## Kleist (1934)
 
 ``` r
-ggplot() +
-  geom_brain(
-    atlas = kleist(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = kleist()$palette, na.value = "grey") +
-  theme_void()
+plot(kleist())
 ```
 
 <img src="man/figures/README-kleist-1.png" style="width:100.0%" />
@@ -123,15 +82,7 @@ ggplot() +
 ## Smith (1907)
 
 ``` r
-ggplot() +
-  geom_brain(
-    atlas = smith(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = smith()$palette, na.value = "grey") +
-  theme_void()
+plot(smith())
 ```
 
 <img src="man/figures/README-smith-1.png" style="width:100.0%" />
