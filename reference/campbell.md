@@ -65,42 +65,17 @@ campbell()
 #> Rendering: ✔ ggseg
 #> ✔ ggseg3d (vertices)
 #> ────────────────────────────────────────────────────────────────────────────────
-#> # A tibble: 34 × 3
-#>    hemi  region            label               
-#>    <chr> <chr>             <chr>               
-#>  1 left  prefrontal        lh_prefrontal       
-#>  2 left  frontal           lh_frontal          
-#>  3 left  inter_precentral  lh_inter_precentral 
-#>  4 left  precentral        lh_precentral       
-#>  5 left  postcentral       lh_postcentral      
-#>  6 left  inter_postcentral lh_inter_postcentral
-#>  7 left  parietal          lh_parietal         
-#>  8 left  visuopsychic      lh_visuopsychic     
-#>  9 left  visuosensory      lh_visuosensory     
-#> 10 left  temporal          lh_temporal         
-#> 11 left  audiopsychic      lh_audiopsychic     
-#> 12 left  audiosensory      lh_audiosensory     
-#> 13 left  olfactory         lh_olfactory        
-#> 14 left  limbicA           lh_limbicA          
-#> 15 left  limbicB           lh_limbicB          
-#> 16 left  limbicC           lh_limbicC          
-#> 17 left  insula            lh_insula           
-#> 18 right prefrontal        rh_prefrontal       
-#> 19 right frontal           rh_frontal          
-#> 20 right inter_precentral  rh_inter_precentral 
-#> 21 right precentral        rh_precentral       
-#> 22 right postcentral       rh_postcentral      
-#> 23 right inter_postcentral rh_inter_postcentral
-#> 24 right parietal          rh_parietal         
-#> 25 right visuopsychic      rh_visuopsychic     
-#> 26 right visuosensory      rh_visuosensory     
-#> 27 right temporal          rh_temporal         
-#> 28 right audiopsychic      rh_audiopsychic     
-#> 29 right audiosensory      rh_audiosensory     
-#> 30 right olfactory         rh_olfactory        
-#> 31 right limbicA           rh_limbicA          
-#> 32 right limbicB           rh_limbicB          
-#> 33 right limbicC           rh_limbicC          
-#> 34 right insula            rh_insula           
+#>    hemi            region                label
+#> 1  left        prefrontal        lh_prefrontal
+#> 2  left           frontal           lh_frontal
+#> 3  left  inter_precentral  lh_inter_precentral
+#> 4  left        precentral        lh_precentral
+#> 5  left       postcentral       lh_postcentral
+#> 6  left inter_postcentral lh_inter_postcentral
+#> 7  left          parietal          lh_parietal
+#> 8  left      visuopsychic      lh_visuopsychic
+#> 9  left      visuosensory      lh_visuosensory
+#> 10 left          temporal          lh_temporal
+#> ... with 24 more rows
 plot(campbell())
 ```

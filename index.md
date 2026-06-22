@@ -11,6 +11,7 @@ We recommend installing the ggseg-atlases through the ggseg
 [r-universe](https://ggseg.r-universe.dev/ui#builds):
 
 ``` r
+
 options(repos = c(
   ggseg = "https://ggseg.r-universe.dev",
   CRAN = "https://cloud.r-project.org"
@@ -22,6 +23,7 @@ install.packages("ggsegHistorical")
 You can install this package from [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("ggsegverse/ggsegHistorical")
 ```
@@ -29,6 +31,7 @@ pak::pak("ggsegverse/ggsegHistorical")
 ## Brodmann (1909)
 
 ``` r
+
 library(ggseg)
 library(ggsegHistorical)
 
@@ -40,6 +43,7 @@ plot(brodmann())
 ## Campbell (1905)
 
 ``` r
+
 plot(campbell())
 ```
 
@@ -48,6 +52,7 @@ plot(campbell())
 ## Economo & Koskinas (1925)
 
 ``` r
+
 plot(economo())
 ```
 
@@ -56,6 +61,7 @@ plot(economo())
 ## Flechsig (1920)
 
 ``` r
+
 plot(flechsig())
 ```
 
@@ -64,6 +70,7 @@ plot(flechsig())
 ## Kleist (1934)
 
 ``` r
+
 plot(kleist())
 ```
 
@@ -72,6 +79,7 @@ plot(kleist())
 ## Smith (1907)
 
 ``` r
+
 plot(smith())
 ```
 
