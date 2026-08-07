@@ -1,6 +1,10 @@
 atlas_names <- c(
-  "brodmann", "campbell", "economo",
-  "flechsig", "kleist", "smith"
+  "brodmann",
+  "campbell",
+  "economo",
+  "flechsig",
+  "kleist",
+  "smith"
 )
 
 for (nm in atlas_names) {
@@ -18,24 +22,10 @@ for (nm in atlas_names) {
 
     it("renders with ggseg", {
       skip_if_not_installed("ggseg")
-      skip_if_not_installed("ggplot2")
       skip_if_not_installed("vdiffr")
-      p <- ggplot2::ggplot() +
-        ggseg::geom_brain(
-          atlas = atlas,
-          mapping = ggplot2::aes(fill = label),
-          position = ggseg::position_brain(
-            hemi ~ view
-          ),
-          show.legend = FALSE
-        ) +
-        ggplot2::scale_fill_manual(
-          values = atlas$palette,
-          na.value = "grey"
-        ) +
-        ggplot2::theme_void()
       vdiffr::expect_doppelganger(
-        paste0(nm, "-2d"), p
+        paste0(nm, "-2d"),
+        ggseg::brain_test_plot(atlas)
       )
     })
 
@@ -44,7 +34,8 @@ for (nm in atlas_names) {
       skip_if_not_installed("ggseg.meshes")
       p <- ggseg3d::ggseg3d(atlas = atlas)
       expect_s3_class(
-        p, c("plotly", "htmlwidget")
+        p,
+        c("plotly", "htmlwidget")
       )
     })
   })
