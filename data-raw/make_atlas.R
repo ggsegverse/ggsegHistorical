@@ -7,7 +7,7 @@ atlases <- list(
   brodmann = list(
     annot_pattern = "fsaverage_Brodmann",
     contextual = "unknown",
-    tolerance = 0.05
+    polish = TRUE
   ),
   campbell = list(
     annot_pattern = "campbell",
@@ -16,17 +16,17 @@ atlases <- list(
   economo = list(
     annot_pattern = "economo",
     contextual = "unknown",
-    tolerance = 0.05
+    polish = TRUE
   ),
   flechsig = list(
     annot_pattern = "flechsig",
     contextual = "unknown",
-    tolerance = 0.05
+    polish = TRUE
   ),
   kleist = list(
     annot_pattern = "kleist",
     contextual = "Unknown",
-    tolerance = 0.05
+    polish = TRUE
   ),
   smith = list(
     annot_pattern = "smith",
@@ -49,10 +49,9 @@ for (nm in names(atlases)) {
     skip_existing = FALSE,
     cleanup = FALSE
   )
-  if (!is.null(cfg$tolerance)) args$tolerance <- cfg$tolerance
-
-  atlas <- do.call(create_cortical_from_annotation, args) |>
-    atlas_region_contextual(cfg$contextual, "label")
+  atlas <- do.call(create_cortical_from_annotation, args)
+  if (isTRUE(cfg$polish)) atlas <- atlas_polish(atlas, keep = 0.2)
+  atlas <- atlas_region_contextual(atlas, cfg$contextual, "label")
 
   cat("Created", nm, "atlas\n")
   print(atlas)
